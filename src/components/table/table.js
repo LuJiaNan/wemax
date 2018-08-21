@@ -22,12 +22,19 @@ export default class Table extends Component {
     }
   
     render () {
-      
-      let columnData = this.state.column;//1
+      //1
+      // let columnList = this.state.column.map((value,i)=>{
+      //   return <view key={i}>{value.dataIndex}</view>
+      // })
+      // let columnData = this.state.column;
 
-      let columnList = columnData.map((value,i)=>{//2
+      //2
+      let columnData = this.state.column;
+
+      let columnList = columnData.map((value,i)=>{
         return <view key={i}>{value.dataIndex}</view>
       })
+      //
 
       let dataList = this.state.data.map((value,i)=>{
         // console.log('是不是数组：'+value instanceof Array)
@@ -45,7 +52,7 @@ export default class Table extends Component {
               // })
 
 
-              //table-head消失，table-body正常显示(1代码段位于2之前,当前正常显示)
+              //table-head消失，table-body正常显示(1代码段顺序错误,当前正常显示)
               columnData.map((column,j)=>{
                 return (
                   <view key={i+j}>{value[column.name]}</view>
