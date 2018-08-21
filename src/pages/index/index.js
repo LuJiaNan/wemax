@@ -7,6 +7,7 @@ import {
 import React from "react";
 import './index.less'
 import { Table } from '../../components/table/table'
+import { Search } from '../../components/search/search'
 
 export default class Index extends Component {
   config = {
@@ -96,8 +97,16 @@ export default class Index extends Component {
   }
   skipToMy(){
     Taro.switchTab({
-      url: `/pages/my/my?param=${this.state.param}`
+      // 跳转到tabbar不能加参数
+      // url: `/pages/my/my?param=${this.state.param}`
+      url: `/pages/my/my`
     })
+  }
+  onChange = (value) =>{
+    console.log(value)
+  }
+  onSearch = (value) =>{
+    console.log(value)
   }
   render () {
     const listItems = this.state.data.map((value) => {
@@ -125,7 +134,8 @@ export default class Index extends Component {
             <View className='demo-text-3'>3</View>
           </SwiperItem>
         </Swiper>
-        <Table dataSource={this.state.tableData} columns={this.state.column}/>
+        <Search size="small" onChange={this.onChange} onSearch={this.onSearch}/>
+        <Table dataSource={this.state.tableData} columns={this.state.column} styleObj={{marginTop: '20px'}}/>
       </View>
     )
   }

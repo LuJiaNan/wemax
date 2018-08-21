@@ -7,16 +7,17 @@ export default class Table extends Component {
         super(props)
         this.state = {
           data: [],
-          column: [],
+          column: []
         }
     }
   
-    componentWillMount () { }
+    componentWillMount () {}
   
     componentDidMount () {
       this.setState({
         data: this.props.dataSource,
-        column: this.props.columns
+        column: this.props.columns,
+        styleObj: this.props.styleObj
       })
     }
   
@@ -64,9 +65,23 @@ export default class Table extends Component {
         )
       })
 
-
+      //样式获取
+      const  { styleObj } = this.state
+      let styleStr = ''
+      let Acode="A".charCodeAt(0);
+      let Zcode="Z".charCodeAt(0);
+      for(let key in styleObj){ 
+        let value =  styleObj[key];
+        for(let i=0;i<key.length;i++){
+          let letter = key.charAt(i);
+          if(letter.charCodeAt(0)>=Acode&&letter.charCodeAt(0)<=Zcode){
+            key = key.split(letter)[0]+'-'+ letter.toLowerCase() +key.split(letter)[1]
+          }
+        } 
+        styleStr += `${key}:${value};`     
+      } 
       return (
-        <view className='taro-table'>
+        <view className='taro-table' style={styleStr}>
           <view className='taro-table-head flex flex-align-center flex-pack-justify'>
             {columnList}
           </view>

@@ -1,0 +1,104 @@
+@input_time: 0.6s;
+.small{
+    .select_box{
+        position: relative;
+        margin: 0 5rem;
+        .search_image{
+            width: 1.2rem;
+            height: 1.2rem;
+            position: absolute;
+            right: 0.5rem;
+            top: 0.25rem;
+            bottom: 0;
+            margin: 0 auto;
+            background-image: url(../../asset/images/search.png);
+            background-size: cover;
+            transition:all @input_time;
+            -moz-transition:all @input_time;
+            -webkit-transition:all @input_time;
+            -o-transition:all @input_time;
+        }
+    }
+    .input_box{
+        border-bottom: 1px solid #dfdfdf;
+        padding: 0 0.8rem;
+        font-size:0.6rem;
+        padding-right:2rem;
+        transition:all @input_time;
+        -moz-transition:all @input_time;
+        -webkit-transition:all @input_time;
+        -o-transition:all @input_time;
+    }   
+}
+.normal{
+    .select_box{
+        position: relative;
+        margin: 0 3rem;
+        .search_image{
+            width: 1.5rem;
+            height: 1.5rem;
+            position: absolute;
+            right: 0.5rem;
+            top: 0;
+            bottom: 0;
+            margin: 0 auto;
+            background-image: url(../../asset/images/search.png);
+            background-size: cover;
+            transition:all @input_time;
+            -moz-transition:all @input_time;
+            -webkit-transition:all @input_time;
+            -o-transition:all @input_time;
+        }
+    }
+    .input_box{
+        border-bottom: 1px solid #dfdfdf;
+        padding: 0 0.8rem;
+        font-size:0.8rem;
+        padding-right:2rem;
+        transition:all @input_time;
+        -moz-transition:all @input_time;
+        -webkit-transition:all @input_time;
+        -o-transition:all @input_time;
+    }   
+}
+.large{
+    .select_box{
+        position: relative;
+        margin: 0 1rem;
+        .search_image{
+            width: 1.8rem;
+            height: 1.8rem;
+            position: absolute;
+            right: 0.5rem;
+            top: -0.25rem;
+            bottom: 0;
+            margin: 0 auto;
+            background-image: url(../../asset/images/search.png);
+            background-size: cover;
+            transition:all @input_time;
+            -moz-transition:all @input_time;
+            -webkit-transition:all @input_time;
+            -o-transition:all @input_time;
+        }
+    }
+    .input_box{
+        border-bottom: 1px solid #dfdfdf;
+        padding: 0 0.8rem;
+        font-size:1rem;
+        padding-right:2rem;
+        transition:all @input_time;
+        -moz-transition:all @input_time;
+        -webkit-transition:all @input_time;
+        -o-transition:all @input_time;
+    }
+}
+
+.select_box:hover {
+    .input_box {
+        border-bottom: 1px solid #fff;
+        box-shadow: 0 3px 0 deepskyblue;
+    }
+    .search_image {
+        background-image: url(../../asset/images/search_hover.png);
+    }
+} 
