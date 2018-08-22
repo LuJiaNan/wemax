@@ -1,0 +1,3 @@
+*.js linguist-language=react,wx
+*.css linguist-language=react,wx
+*.html linguist-language=react,wx
