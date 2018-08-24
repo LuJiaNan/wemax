@@ -7,10 +7,7 @@ export default class My extends Component {
   
     componentWillMount () { }
   
-    componentDidMount () { 
-      const { param }=this.$router.params
-      console.log(param)
-    }
+    componentDidMount () { }
   
     componentWillUnmount () { }
   

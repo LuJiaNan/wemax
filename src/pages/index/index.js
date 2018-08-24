@@ -3,17 +3,20 @@ import {
   View, 
   Swiper, 
   SwiperItem,
+  Button
 } from '@tarojs/components'
 import React from "react";
 import './index.less'
 import { Table } from '../../components/table/table'
 import { Search } from '../../components/search/search'
+var Mcharts = require('../../components/mcharts/mcharts');
 
 export default class Index extends Component {
   config = {
     navigationBarTitleText: '首页'
   }
   constructor (){
+    super()
     this.state = {
       param: '我是从首页带过来的参数',
       data: [{
@@ -28,33 +31,19 @@ export default class Index extends Component {
         }
       ],
       tableData: [{
-        "date": "2018-08-15",
+        "date": "08.23",
         "radiant": "LGD.PSD",
         "dire": "Liquid",
         "winner": "LGD.PSD",
         "score": "40:35",
-        "time": "43:35"
+        "time": "43:39"
       },{
-        "date": "2018-08-16",
-        "radiant": "LGD.PSD",
-        "dire": "Liquid",
+        "date": "08.23",
+        "radiant": "Liquid",
+        "dire": "LGD.PSD",
         "winner": "LGD.PSD",
-        "score": "40:35",
-        "time": "43:35"
-      },{
-        "date": "2018-08-17",
-        "radiant": "LGD.PSD",
-        "dire": "Liquid",
-        "winner": "LGD.PSD",
-        "score": "40:35",
-        "time": "43:35"
-      },{
-        "date": "2018-08-18",
-        "radiant": "LGD.PSD",
-        "dire": "Liquid",
-        "winner": "LGD.PSD",
-        "score": "40:35",
-        "time": "43:35"
+        "score": "13:31",
+        "time": "35:44"
       }],
       column: [{
         name: 'date',
@@ -79,23 +68,63 @@ export default class Index extends Component {
       {
         name: 'time',
         dataIndex: '耗时'
-      }]
+      }],
+      charts: {
+        area: ["上海,750","杭州,425","苏州,960","南京,700","广州,800","厦门,975","北京,375","沈阳,775","泉州,100","哈尔滨,200"],
+        pieData: [10, 25, 35, 30]
+      }
     }
   }
   componentWillMount () { }
 
-  componentDidMount () { 
-    
+  componentDidMount =() =>{ 
+    var pieCharts = new Mcharts({
+      type: "pie",
+      data: this.state.charts.pieData,
+      colors: ["#7158ec", "#fec312", "#1db2f4", "#ff3444"],
+      canvasId: 'canvas1',
+      point: {
+          x: 100,
+          y: 100
+      },
+      radius : 50
+    });
+    new Mcharts({
+        type: "ring",
+        data: [10, 25, 35, 30],
+        colors: ["#7158ec", "#fec312", "#1db2f4", "#ff3444"],
+        canvasId: 'canvas2',
+        point: {
+            x: 100,
+            y: 100
+        },
+        radius : 50
+    });
+
+    new Mcharts({
+        type: 'bar',
+        data: this.state.charts.area,
+        // bgColors: "deepskyblue",
+        color: '#383838',
+        cHeight: 100,//表格高度
+        cWidth: 270,//表格宽度
+        bWidth: 14,//柱子宽度
+        bMargin: 14,//柱子间距
+        showYAxis: true,//是否显示Y轴
+        xCaption: '已成交客户地域分布',
+        yCaption: '地域成交数',
+        canvasId: 'chartContainer'
+    });
   }
 
   componentWillUnmount () { }
 
-  skipToDetail(){
+  skipToDetail = () =>{
     Taro.navigateTo({
       url: `/pages/detail/detail?param=${this.state.param}`
     })
   }
-  skipToMy(){
+  skipToMy = () =>{
     Taro.switchTab({
       // 跳转到tabbar不能加参数
       // url: `/pages/my/my?param=${this.state.param}`
@@ -136,6 +165,10 @@ export default class Index extends Component {
         </Swiper>
         <Search size="small" onChange={this.onChange} onSearch={this.onSearch}/>
         <Table dataSource={this.state.tableData} columns={this.state.column} styleObj={{marginTop: '20px'}}/>
+        {/* <Mcharts type='brokenLine'/> */}
+        {/* <canvas canvas-id="canvas1"></canvas>
+        <canvas canvas-id="canvas2"></canvas> */}
+        <canvas canvas-id="chartContainer" class="chartContainer"></canvas>
       </View>
     )
   }
