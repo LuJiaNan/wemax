@@ -148,6 +148,7 @@ var Charts = function (params) {
             var numMarkers = parseInt(maxValue / totLabelsOnYAxis);
             cxt.textAlign = "center";
             // Y Axis
+            // 隐藏y轴标识
             // for (var a = 0; a <= totLabelsOnYAxis; a++) {
             //     var markerVal = a * numMarkers;
             //     var markerValHt = a * numMarkers * cHeight;
@@ -177,7 +178,7 @@ var Charts = function (params) {
             gradientY.addColorStop("0.5","blue");
             gradientY.addColorStop("1.0","red");
             cxt.fillStyle=gradientY;
-            
+
             //canvas实现得到一个字符串每个字符旋转一定角度后的字符串
             cxt.rotate(90*Math.PI/180);
             for(let i=0;i<yCaption.length;i++){
