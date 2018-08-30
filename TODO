@@ -1,6 +1,7 @@
 1.select size 可定制 ---------done
 2.table样式可传递 ---------done
-3.添加图标组件(Mcharts=>max charts)
+3.添加图标组件(Mcharts=>max charts)---------done
+4.table组件优化，增加loading功能 ---------done
 
 
 

@@ -70,7 +70,7 @@ export default class Index extends Component {
         dataIndex: '耗时'
       }],
       charts: {
-        area: ["上海,750","杭州,425","苏州,960","南京,700","广州,800","厦门,975","北京,375","沈阳,775","泉州,100","哈尔滨,200"],
+        area: ["LGD,1500","Liqud,1200","OG,1000","EG,800","VP,600","Secret,500","VG,400","Optic,300","FTM,200",",VGJ.S,100"],
         pieData: [10, 25, 35, 30]
       }
     }
@@ -81,7 +81,7 @@ export default class Index extends Component {
     var pieCharts = new Mcharts({
       type: "pie",
       data: this.state.charts.pieData,
-      colors: ["#7158ec", "#fec312", "#1db2f4", "#ff3444"],
+      colors: ["red", "yellow", "blue", "deepskyblue"],
       canvasId: 'canvas1',
       point: {
           x: 100,
@@ -92,13 +92,13 @@ export default class Index extends Component {
     new Mcharts({
         type: "ring",
         data: [10, 25, 35, 30],
-        colors: ["#7158ec", "#fec312", "#1db2f4", "#ff3444"],
+        colors: ["red", "yellow", "blue", "deepskyblue"],
         canvasId: 'canvas2',
         point: {
             x: 100,
             y: 100
         },
-        radius : 50
+        radius : 40
     });
 
     new Mcharts({
@@ -111,8 +111,8 @@ export default class Index extends Component {
         bWidth: 14,//柱子宽度
         bMargin: 14,//柱子间距
         showYAxis: true,//是否显示Y轴
-        xCaption: '已成交客户地域分布',
-        yCaption: '地域成交数',
+        xCaption: 'TI战队积分排名',
+        yCaption: '积分',
         canvasId: 'chartContainer'
     });
   }
@@ -165,9 +165,8 @@ export default class Index extends Component {
         </Swiper>
         <Search size="small" onChange={this.onChange} onSearch={this.onSearch}/>
         <Table dataSource={this.state.tableData} columns={this.state.column} styleObj={{marginTop: '20px'}}/>
-        {/* <Mcharts type='brokenLine'/> */}
-        {/* <canvas canvas-id="canvas1"></canvas>
-        <canvas canvas-id="canvas2"></canvas> */}
+        <canvas canvas-id="canvas1"></canvas>
+        <canvas canvas-id="canvas2"></canvas>
         <canvas canvas-id="chartContainer" class="chartContainer"></canvas>
       </View>
     )

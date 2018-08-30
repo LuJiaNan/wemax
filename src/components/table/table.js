@@ -1,4 +1,4 @@
-import Taro, { Component } from '@tarojs/taro'
+import Taro, { Component, Image } from '@tarojs/taro'
 
 import './table.less'
 import '../../app.less'
@@ -17,8 +17,20 @@ export default class Table extends Component {
       this.setState({
         data: this.props.dataSource,
         column: this.props.columns,
-        styleObj: this.props.styleObj
+        styleObj: this.props.styleObj,
+        loading: this.props.loading || false
       })
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const { data } = this.state
+      const newdata = nextProps.dataSource
+      if (data !== newdata) {
+        this.setState({
+          data: nextProps.dataSource,
+          loading: nextProps.loading
+        })
+      }
     }
   
     render () {
@@ -73,7 +85,7 @@ export default class Table extends Component {
       })
 
       //样式获取
-      const  { styleObj } = this.state
+      const  { styleObj, loading } = this.state
       let styleStr = ''
       let Acode="A".charCodeAt(0);
       let Zcode="Z".charCodeAt(0);
@@ -92,9 +104,16 @@ export default class Table extends Component {
           <view className='taro-table-head flex flex-align-center flex-pack-justify'>
             {columnList}
           </view>
-          <view className='taro-table-body'>
-            {dataList}
-          </view>
+          {
+            loading === false?
+            <view className='taro-table-body'>
+              {dataList}
+            </view>
+            :
+            <view className='taro-table-body taro-table-loading-body'>
+              <image src="../../static/images/loading.png"></image>
+            </view>
+          }
         </view>
       )
     }

@@ -12,16 +12,17 @@ var Charts = function (params) {
     }
     //饼图
     if(type == 'pie'){
-        for (var j = 0; j < data.length; j++) {
+        for (let j = 0; j < data.length; j++) {
             context.beginPath();
 
-            var start = 0;
+            let start = 0;
             if (j > 0) {
                 for (var k = 0; k < j; k++) {
                     start += data[k] / total * 2 * Math.PI;
                 }
             }
-            context.arc(point.x, point.y, radius, start, data[j] / total * 2 * Math.PI);
+            let end = start + data[j] / total * 2 * Math.PI
+            context.arc(point.x, point.y, radius, start, end);
 
             context.lineTo(point.x, point.y);
 
@@ -37,16 +38,17 @@ var Charts = function (params) {
             actions: context.getActions()
         })
     }else if(type == "ring"){
-        for (var a = 0; a < data.length; a++) {
+        for (let a = 0; a < data.length; a++) {
             context.beginPath();
             //起点弧度
-            var startRing = 0;
+            let startRing = 0;
             if (a > 0) {
                 for (var b = 0; b < a; b++) {
                     startRing += data[b] / total * 2 * Math.PI;
                 }
             }
-            context.arc(point.x, point.y, radius, startRing, data[a] / total * 2 * Math.PI);
+            let endRing = startRing + data[a] / total * 2 * Math.PI
+            context.arc(point.x, point.y, radius, startRing, endRing);
             context.setLineWidth(radius/3);
             context.setStrokeStyle(colors[a]);
             // context.setGlobalAlpha(0.9);
@@ -55,7 +57,7 @@ var Charts = function (params) {
             context.closePath();
             context.beginPath();
 
-            context.arc(point.x, point.y, radius/1.5, startRing, data[a] / total * 3 * Math.PI);
+            context.arc(point.x, point.y, radius/1.25, startRing, endRing/1.25);
             context.setLineWidth(radius/16);
             context.setStrokeStyle('#f6f6f6');
             context.stroke();
