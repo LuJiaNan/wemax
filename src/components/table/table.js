@@ -2,6 +2,7 @@ import Taro, { Component, Image } from '@tarojs/taro'
 
 import './table.less'
 import '../../app.less'
+import loading_png from '../../asset/images/loading.png'
 export default class Table extends Component {
     constructor(props){
         super(props)
@@ -105,13 +106,13 @@ export default class Table extends Component {
             {columnList}
           </View>
           {
-            loading === true?
+            loading === false?
             <View className='taro-table-body'>
               {dataList}
             </View>
             :
             <View className='taro-table-body taro-table-loading-body'>
-              <Image src="../../asset/images/loading.png"></Image>
+              <Image src={loading_png}/>
             </View>
           }
         </View>
