@@ -71,7 +71,7 @@ export default class Table extends Component {
                 )
               })
 
-              //value是对象，此处可以map的原因是转为小程序代码后，map=>wx:for,真实代码不调对象.map，所以不报错
+              //value是对象，此处可以map的原因是转为小程序代码后，map=>wx:for,真实代码不调对象方法map，所以不报错,h5可能会报错
               //table正常显示
               // value.map((name,j)=>{
               //   // console.log(name)
@@ -111,7 +111,7 @@ export default class Table extends Component {
             </view>
             :
             <view className='taro-table-body taro-table-loading-body'>
-              <image src="../../static/images/loading.png"></image>
+              <image src="/static/images/loading.png"></image>
             </view>
           }
         </view>

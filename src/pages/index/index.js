@@ -5,10 +5,14 @@ import {
   SwiperItem,
   Button
 } from '@tarojs/components'
+
 import React from "react";
 import './index.less'
 import { Table } from '../../components/table/table'
 import { Search } from '../../components/search/search'
+import { 
+  AtButton 
+} from 'taro-ui'
 var Mcharts = require('../../components/mcharts/mcharts');
 
 export default class Index extends Component {
@@ -163,6 +167,7 @@ export default class Index extends Component {
             <View className='demo-text-3'>3</View>
           </SwiperItem>
         </Swiper>
+        <AtButton type='primary'>按钮文案</AtButton>
         <Search size="small" onChange={this.onChange} onSearch={this.onSearch}/>
         <Table dataSource={this.state.tableData} columns={this.state.column} styleObj={{marginTop: '20px'}}/>
         <canvas canvas-id="canvas1"></canvas>
