@@ -36,7 +36,7 @@ export default class Table extends Component {
     render () {
       //1
       // let columnList = this.state.column.map((value,i)=>{
-      //   return <view key={i}>{value.dataIndex}</view>
+      //   return <View key={i}>{value.dataIndex}</View>
       // })
       // let columnData = this.state.column;
 
@@ -44,7 +44,7 @@ export default class Table extends Component {
       let columnData = this.state.column;
 
       let columnList = columnData.map((value,i)=>{
-        return <view key={i}>{value.dataIndex}</view>
+        return <View key={i}>{value.dataIndex}</View>
       })
       //
 
@@ -52,14 +52,14 @@ export default class Table extends Component {
         // console.log('是不是数组：'+value instanceof Array)
         // console.log(value)
         return (
-          <view className='taro-table-tr flex flex-align-center flex-pack-justify' key={i}>
+          <View className='taro-table-tr flex flex-align-center flex-pack-justify' key={i}>
             { 
 
               //table为空
               // this.state.column.map((column,j)=>{
               //   console.log(column)
               //   return (
-              //     <view key={i+j}>{value[column.name]}</view>
+              //     <View key={i+j}>{value[column.name]}</View>
               //   )
               // })
 
@@ -67,7 +67,7 @@ export default class Table extends Component {
               //table-head消失，table-body正常显示(1代码段顺序错误,当前正常显示)
               columnData.map((column,j)=>{
                 return (
-                  <view key={i+j}>{value[column.name]}</view>
+                  <View key={i+j}>{value[column.name]}</View>
                 )
               })
 
@@ -76,11 +76,11 @@ export default class Table extends Component {
               // value.map((name,j)=>{
               //   // console.log(name)
               //   return (
-              //     <view key={i+j}>{name}</view>
+              //     <View key={i+j}>{name}</View>
               //   )
               // })
             }
-          </view>
+          </View>
         )
       })
 
@@ -100,21 +100,21 @@ export default class Table extends Component {
         styleStr += `${key}:${value};`     
       } 
       return (
-        <view className='taro-table' style={styleStr}>
-          <view className='taro-table-head flex flex-align-center flex-pack-justify'>
+        <View className='taro-table' style={styleStr}>
+          <View className='taro-table-head flex flex-align-center flex-pack-justify'>
             {columnList}
-          </view>
+          </View>
           {
-            loading === false?
-            <view className='taro-table-body'>
+            loading === true?
+            <View className='taro-table-body'>
               {dataList}
-            </view>
+            </View>
             :
-            <view className='taro-table-body taro-table-loading-body'>
-              <image src="/static/images/loading.png"></image>
-            </view>
+            <View className='taro-table-body taro-table-loading-body'>
+              <Image src="../../asset/images/loading.png"></Image>
+            </View>
           }
-        </view>
+        </View>
       )
     }
   }

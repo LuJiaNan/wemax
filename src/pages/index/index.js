@@ -143,12 +143,12 @@ export default class Index extends Component {
   }
   render () {
     const listItems = this.state.data.map((value) => {
-      return <view class='li' key={value.id}> {value.id}-{value.name}</view>
+      return <View class='li' key={value.id}> {value.id}-{value.name}</View>
     })
     return (
       <View className='index'>
-        <Button onClick={this.skipToDetail}>gotoDetail</Button>
-        <Button onClick={this.skipToMy}>gotoMy</Button>
+        <AtButton onClick={this.skipToDetail}>gotoDetail</AtButton>
+        <AtButton onClick={this.skipToMy}>gotoMy</AtButton>
         {listItems}
         <Swiper
             className='banner'
@@ -167,7 +167,6 @@ export default class Index extends Component {
             <View className='demo-text-3'>3</View>
           </SwiperItem>
         </Swiper>
-        <AtButton type='primary'>按钮文案</AtButton>
         <Search size="small" onChange={this.onChange} onSearch={this.onSearch}/>
         <Table dataSource={this.state.tableData} columns={this.state.column} styleObj={{marginTop: '20px'}}/>
         <canvas canvas-id="canvas1"></canvas>
