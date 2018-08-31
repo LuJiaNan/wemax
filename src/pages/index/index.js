@@ -2,8 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { 
   View, 
   Swiper, 
-  SwiperItem,
-  Button
+  SwiperItem
 } from '@tarojs/components'
 
 import React from "react";
@@ -147,8 +146,8 @@ export default class Index extends Component {
     })
     return (
       <View className='index'>
-        <AtButton onClick={this.skipToDetail}>gotoDetail</AtButton>
-        <AtButton onClick={this.skipToMy}>gotoMy</AtButton>
+        <AtButton onClick={this.skipToDetail} type='primary' size='normal'>gotoDetail</AtButton>
+        <AtButton onClick={this.skipToMy} type='secondary' size='small'>gotoMy</AtButton>
         {listItems}
         <Swiper
             className='banner'

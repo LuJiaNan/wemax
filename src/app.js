@@ -8,7 +8,8 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/my/my',
-      'pages/detail/detail'
+      'pages/detail/detail',
+      'pages/function/function'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -32,6 +33,11 @@ class App extends Component {
         text: "我的",
         iconPath: "./asset/images/my.png",
         selectedIconPath: "./asset/images/my_selected.png"
+      },{
+        pagePath: "pages/function/function",
+        text: "功能",
+        iconPath: "./asset/images/function.png",
+        selectedIconPath: "./asset/images/function_selected.png"
       }]
     }
   }
