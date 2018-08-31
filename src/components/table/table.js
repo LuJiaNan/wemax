@@ -108,7 +108,7 @@ export default class Table extends Component {
             {columnList}
           </View>
           {
-            loading === true?
+            loading === false?
             <View className='taro-table-body'>
               {dataList}
             </View>
