@@ -9,7 +9,8 @@ class App extends Component {
       'pages/index/index',
       'pages/my/my',
       'pages/detail/detail',
-      'pages/function/function'
+      'pages/function/function',
+      'pages/gameItems/gameItems'
     ],
     window: {
       backgroundTextStyle: 'light',

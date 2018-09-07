@@ -2,6 +2,7 @@
 2.table样式可传递 ---------done
 3.添加图标组件(Mcharts=>max charts)---------done
 4.table组件优化，增加loading功能 ---------done
+5.装备查看界面和英雄查看界面由于数量比较大，弃用table,使用瀑布流懒加载方式呈现
 
 
 
