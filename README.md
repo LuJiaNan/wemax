@@ -1,10 +1,10 @@
 # wemax
 max in wx
 
-run:
+>how to run:
 
-npm i/cnpm i
+>npm i / cnpm i
 
-npm run dev:weapp #运行小程序
+>npm run dev:weapp #运行小程序
 
 
