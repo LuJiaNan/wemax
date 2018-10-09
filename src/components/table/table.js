@@ -21,7 +21,9 @@ export default class Table extends Component {
         data: this.props.dataSource,
         column: this.props.columns,
         styleObj: this.props.styleObj,
-        loading: this.props.loading || false
+        loading: this.props.loading || false,
+        hideHead: this.props.hideHead || false,
+        fixHead: this.props.fixHead || false
       })
     }
 
@@ -88,7 +90,7 @@ export default class Table extends Component {
       })
 
       //样式获取
-      const  { styleObj, loading } = this.state
+      const  { styleObj, loading, hideHead } = this.state
       let styleStr = ''
       let Acode="A".charCodeAt(0);
       let Zcode="Z".charCodeAt(0);
@@ -104,11 +106,26 @@ export default class Table extends Component {
       } 
       return (
         <View className='taro-table' style={styleStr}>
-          <View className='taro-table-head flex flex-align-center flex-pack-justify'>
-            {columnList}
-          </View>
           {
-            loading === false?
+            hideHead? 
+            <View></View>
+            :
+            <View>
+              {
+                //固定表格head
+                !fixHead?
+                <View className='taro-table-head flex flex-align-center flex-pack-justify'>
+                  {columnList}
+                </View>
+                :
+                <View className='taro-table-head flex flex-align-center flex-pack-justify'>
+                  {columnList}
+                </View>
+              }
+            </View>
+          }
+          {
+            !loading?
             <View className='taro-table-body'>
               {dataList}
             </View>

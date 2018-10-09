@@ -69,11 +69,11 @@ export default class GameItems extends Component {
     }
   
     render () {
-    const { dataSource, columns, loading } = this.state
-    return (
-        <View>
-            <Table dataSource={dataSource} columns={columns} loading={loading}/>
-        </View>
-    )
+        const { dataSource, columns, loading } = this.state
+        return (
+            <View>
+                <Table dataSource={dataSource} columns={columns} loading={loading}/>
+            </View>
+        )
     }
   }

@@ -167,7 +167,7 @@ export default class Index extends Component {
           </SwiperItem>
         </Swiper>
         <Search size="small" onChange={this.onChange} onSearch={this.onSearch}/>
-        <Table dataSource={this.state.tableData} columns={this.state.column} styleObj={{marginTop: '20px'}}/>
+        <Table dataSource={this.state.tableData} columns={this.state.column} styleObj={{marginTop: '20px'}} hideHead={true} fixHead={true}/>
         <canvas canvas-id="canvas1"></canvas>
         <canvas canvas-id="canvas2"></canvas>
         <canvas canvas-id="chartContainer" class="chartContainer"></canvas>
