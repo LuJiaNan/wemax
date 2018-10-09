@@ -9,10 +9,12 @@ import React from "react";
 import './index.less'
 import { Table } from '../../components/table/table'
 import { Search } from '../../components/search/search'
+// import { TaroSearch } from 'taro-search'
 import { 
   AtButton 
 } from 'taro-ui'
 var Mcharts = require('../../components/mcharts/mcharts');
+// var TaroSearch = require('taro-search');
 
 export default class Index extends Component {
   config = {

@@ -21,9 +21,12 @@
     "@tarojs/taro-weapp": "^1.0.0-beta.18",
     "ajv": "^6.5.3",
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "echarts": "^4.1.0",
     "nervjs": "^1.3.0",
+    "react": "^16.5.2",
     "react-router-dom": "^4.3.1",
+    "taro-search": "^1.0.5",
     "taro-ui": "^1.1.0",
     "whatwg-fetch": "^2.0.4"
   },
@@ -46,6 +49,7 @@
     "eslint-config-taro": "^1.0.0-beta.18",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.8.2",
-    "eslint-plugin-taro": "^1.0.0-beta.18"
+    "eslint-plugin-taro": "^1.0.0-beta.18",
+    "style-loader": "^0.23.1"
   }
 }

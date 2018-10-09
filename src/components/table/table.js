@@ -61,7 +61,7 @@ export default class Table extends Component {
             { 
 
               //table为空
-              // this.state.column.map((column,j)=>{
+              // this.state.column.map((column,j,i)=>{
               //   console.log(column)
               //   return (
               //     <View key={i+j}>{value[column.name]}</View>
@@ -69,8 +69,8 @@ export default class Table extends Component {
               // })
 
 
-              //table-head消失，table-body正常显示(1代码段顺序错误,当前正常显示)
-              columnData.map((column,j)=>{
+              //table-head消失，table-body正常显示(1代码段顺序错误,当前正常显示),需要传入外层循环的index，直接获取不到
+              columnData.map((column,j,i)=>{
                 return (
                   <View key={i+j}>{value[column.name]}</View>
                 )
@@ -78,7 +78,7 @@ export default class Table extends Component {
 
               //value是对象，此处可以map的原因是转为小程序代码后，map=>wx:for,真实代码不调对象方法map，所以不报错,h5可能会报错
               //table正常显示
-              // value.map((name,j)=>{
+              // value.map((name,j,i)=>{
               //   // console.log(name)
               //   return (
               //     <View key={i+j}>{name}</View>
@@ -111,17 +111,9 @@ export default class Table extends Component {
             <View></View>
             :
             <View>
-              {
-                //固定表格head
-                !fixHead?
                 <View className='taro-table-head flex flex-align-center flex-pack-justify'>
                   {columnList}
                 </View>
-                :
-                <View className='taro-table-head flex flex-align-center flex-pack-justify'>
-                  {columnList}
-                </View>
-              }
             </View>
           }
           {
