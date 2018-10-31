@@ -27,7 +27,7 @@ export default class Table extends Component {
       })
     }
 
-    componentWillReceiveProps(nextProps) {
+    static getDerivedStateFromProps(nextProps, prevState) {
       const { data } = this.state
       const newdata = nextProps.dataSource
       if (data !== newdata) {
