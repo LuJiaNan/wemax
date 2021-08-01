@@ -28,14 +28,15 @@ export default class Table extends Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-      const { data } = this.state
+      const { data } = prevState
       const newdata = nextProps.dataSource
       if (data !== newdata) {
-        this.setState({
+        return {
           data: nextProps.dataSource,
           loading: nextProps.loading
-        })
+        }
       }
+      return null;
     }
   
     render () {
@@ -57,7 +58,7 @@ export default class Table extends Component {
         // console.log('是不是数组：'+value instanceof Array)
         // console.log(value)
         return (
-          <View className='taro-table-tr flex flex-align-center flex-pack-justify' key={i}>
+          <View className='taro-table-tr flex flex-align-center flex-pack-justify' key={value.id}>
             { 
 
               //table为空

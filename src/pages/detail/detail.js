@@ -1,7 +1,7 @@
 import Taro, { 
-  Component,
-  View
+  Component
 } from '@tarojs/taro'
+import View from '@tarojs/components'
 import { Table } from '../../components/table/table'
 import api from '../../static/api/dota2'
 import tool from '../../static/tool/tool'

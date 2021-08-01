@@ -27,7 +27,7 @@
     "react": "^16.5.2",
     "react-router-dom": "^4.3.1",
     "taro-search": "^1.0.5",
-    "taro-ui": "^1.1.0",
+    "taro-ui": "^2.3.4",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {

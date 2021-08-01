@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import Index from './pages/index'
 
+import 'taro-ui/dist/style/index.scss'
 import './app.less'
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
       color: "#dbdbdb",
       selectedColor: "#1296db",
       backgroundColor: "#FBFBFB",
-      borderStyle: "#2A8CE5",
+      borderStyle: "black",
       list: [{
         pagePath: "pages/index/index",
         text: "首页",
